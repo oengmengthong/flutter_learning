@@ -26,8 +26,9 @@ class _TypingSpeedAppState extends State<TypingSpeedApp> {
   int elapsedTime = 0;
   int errorCount = 0;
   int characterCount = 0;
-  late Timer timer;
+  Timer timer;
   bool isTimerRunning = false;
+
   @override
   void initState() {
     super.initState();
@@ -36,8 +37,7 @@ class _TypingSpeedAppState extends State<TypingSpeedApp> {
 
   void setNewTestText() {
     setState(() {
-      currentTestText =
-          testTexts[DateTime.now().microsecondsSinceEpoch % testTexts.length];
+      currentTestText = testTexts[DateTime.now().microsecondsSinceEpoch % testTexts.length];
     });
   }
 
@@ -97,6 +97,7 @@ class _TypingSpeedAppState extends State<TypingSpeedApp> {
               Text('Errors: $errorCount'),
               Text('Characters typed: $characterCount'),
               Text('Typing speed: ${calculateTypingSpeed()} WPM'),
+              Text('CPM: ${calculateCPM()}'),
               SizedBox(height: 20),
               TextButton(
                 child: Text('New Test'),
@@ -121,12 +122,20 @@ class _TypingSpeedAppState extends State<TypingSpeedApp> {
     return (words / minutes).roundToDouble();
   }
 
+  int calculateCPM() {
+    if (elapsedTime == 0) {
+      return 0;
+    }
+    double minutes = elapsedTime / 60;
+    return (characterCount / minutes).round();
+  }
+
   void resetStats() {
     setState(() {
-      userInput = '';
       elapsedTime = 0;
       errorCount = 0;
       characterCount = 0;
+      userInput = '';
       isTimerRunning = false;
     });
   }
