@@ -26,7 +26,7 @@ class _TypingSpeedAppState extends State<TypingSpeedApp> {
   int elapsedTime = 0;
   int errorCount = 0;
   int characterCount = 0;
-  Timer timer;
+  late Timer timer;
   bool isTimerRunning = false;
 
   @override
