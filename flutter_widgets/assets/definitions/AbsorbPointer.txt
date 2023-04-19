@@ -1,0 +1,7 @@
+AbsorbPointer is a widget in Flutter that prevents its child widgets from receiving pointer events. When a user interacts with the screen, the AbsorbPointer widget intercepts the event and prevents it from propagating to its child widgets.
+
+The AbsorbPointer widget has a single child widget, which is the widget that it prevents from receiving pointer events. You can set the absorbing property of AbsorbPointer to true to enable the interception of pointer events, or false to disable it.
+
+This widget is useful in situations where you want to disable certain user interactions temporarily, but still want to display the relevant UI elements. For example, you might use it to disable a button while a background process is running, and then enable it again when the process is complete.
+
+One thing to keep in mind is that AbsorbPointer does not affect the layout or appearance of its child widget. It simply intercepts pointer events and prevents them from being propagated to the child widget. If you want to prevent a widget from being displayed and taking up space in the layout, you should use the Visibility widget with the visible property set to false.

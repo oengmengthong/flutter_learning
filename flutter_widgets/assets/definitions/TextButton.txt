@@ -1,0 +1,27 @@
+Sure, a `TextButton` in Flutter is a configurable button widget that displays a text label and responds to user input when tapped.
+
+Unlike a `RaisedButton` or `ElevatedButton`, a `TextButton` has no background color or elevation by default, making it a good option for simple, text-based interfaces or for displaying buttons in a more subtle way.
+
+To create a `TextButton`, you can use the `TextButton` widget class and provide it with a `child` property that specifies the text to display on the button. You can also customize the appearance and behavior of the button by providing additional properties such as `style`, `onPressed`, `onLongPress`, `focusNode`, and `autofocus`.
+
+Here's an example of creating a `TextButton` with a custom style and `onPressed` callback:
+
+```
+TextButton(
+  onPressed: () {
+    // Do something when the button is pressed
+  },
+  style: TextButton.styleFrom(
+    textStyle: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+    ),
+    primary: Colors.white,
+    backgroundColor: Colors.blue,
+    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+  ),
+  child: Text('Click Me'),
+)
+```
+
+This `TextButton` has a blue background color, white text color, bold font weight, and padding of 20 pixels horizontally and 10 pixels vertically. When the button is pressed, the `onPressed` callback is called to perform some action.
